@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-**Kanban Board** is an interactive web application built using React JS. It allows users to manage and visualize their tasks using a Kanban board interface, enabling dynamic grouping and sorting based on various criteria.
+**Kanban Board** is an interactive web application built using React JS. It allows users to manage and visualize their tasks (tickets) using a Kanban board interface, enabling dynamic grouping and sorting based on various criteria.
 
 ## 2. Tech Stack
 ![ReactJS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) (React+Vite)
@@ -19,12 +19,12 @@ Task Grouping:
  - By Priority: Group tickets based on their priority level.
     
 Task Sorting(Ordering):
-  - By Title: Order Grouped Task by title
-  - By Priority: Order Grouped Task by priority
+  - By Title: Order Grouped tickets by title
+  - By Priority: Order Grouped tickets by priority
 
 ## 4. Setup Locally
 
-1. Clone the repo `git clone https://github.com/Ayush-Bulbule/FashionStore/`
+1. Clone the repo `git clone https://github.com/Ayush-Bulbule/kanban-board/`
 2. Open Project in Terminal 
 3. Install Dependencies `npm install`
 3. Run frontend `npm run dev`
