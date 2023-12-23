@@ -55,7 +55,7 @@ const Navbar = () => {
     //To handle outside close of dropdown
     useEffect(() => {
         const closeDropdown = e => {
-            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'SPAN' || e.target.tagName === 'svg' || e.target.tagName === 'path') {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'SPAN' || e.target.tagName === 'SELECT' || e.target.tagName === 'svg' || e.target.tagName === 'path') {
                 return;
             }
             setDisplay(false);
