@@ -6,8 +6,10 @@
 
 ## 2. Tech Stack
 ![ReactJS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Zustand](https://img.shields.io/badge/Zustand-%20-brightgreen)](https://github.com/pmndrs/zustand)
+
+![Zustand](https://img.shields.io/badge/Zustand-%20-brightgreen)]
 
 ## 3. Features
 
