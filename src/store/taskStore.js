@@ -5,7 +5,7 @@ import { create } from 'zustand';
 const taskStore = (set) => ({
     tasks: [],
     users: [],
-    grouping: 'user',
+    grouping: 'priority',
     sorting: 'title',
     setTasks: (tasks) => set({ tasks }),
     setUsers: (users) => set({ users }),

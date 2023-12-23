@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import './App.css'
 import TaskBoard from './components/TaskBoard'
 import useTaskStore from './store/taskStore'
+import MainBoard from './components/MainBoard'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   //Store to save tasks
   const { setTasks, setUsers } = useTaskStore();
 
+  //Fetch all the tasks and set store
   useEffect(() => {
     const fetchTasks = async () => {
       try {
@@ -23,10 +25,10 @@ function App() {
           setTasks(tickets);
           setUsers(users);
           setLoading(false);
+          if (tickets && users) setLoading(false);
         } else {
           console.log('No data found');
         }
-        if (tickets && users) setLoading(false);
       } catch (err) {
         console.log(err)
       }
@@ -48,14 +50,7 @@ function App() {
             <span className='ml-4'>Loading...</span>
           </div>
           :
-
-          <div className='min-h-screen px-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 bg-gray-100 dark:bg-gray-950 dark:text-gray-50'>
-            <TaskBoard />
-            <TaskBoard />
-            <TaskBoard />
-            <TaskBoard />
-            <TaskBoard />
-          </div>
+          <MainBoard />
       }
 
     </>

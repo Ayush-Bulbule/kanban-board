@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { MdTune, MdDarkMode, MdKeyboardArrowDown, MdLightMode } from 'react-icons/md';
+import useTaskStore from '../store/taskStore';
 
 const Navbar = () => {
     const [theme, setTheme] = useState(null);
     const element = document.documentElement;
-
     //dropdown
     const [display, setDisplay] = useState(false);
+
+    //set display filters
+
+    const { setGrouping, setSorting } = useTaskStore();
 
     //Toggle Theme
     const toggleTheme = () => {
@@ -30,9 +34,35 @@ const Navbar = () => {
     }, [theme]);
 
     //Toggle Display
-    const toggleDisplay = () => {
+    const toggleDisplay = (e) => {
+        e.preventDefault();
         setDisplay(!display);
     }
+
+    //Handle Select Group
+    const handleSelectGroup = (e) => {
+        console.log(e.target.value);
+        setGrouping(e.target.value);
+    }
+
+    //Handle Select Sort
+    const handleSelectSort = (e) => {
+        console.log(e.target.value);
+        setSorting(e.target.value);
+    }
+
+
+    //To handle outside close of dropdown
+    useEffect(() => {
+        const closeDropdown = e => {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'SPAN' || e.target.tagName === 'svg' || e.target.tagName === 'path') {
+                return;
+            }
+            setDisplay(false);
+        }
+        document.body.addEventListener('click', closeDropdown);
+        return () => document.body.removeEventListener('click', closeDropdown);
+    }, [])
 
 
     return (
@@ -46,18 +76,18 @@ const Navbar = () => {
                     <MdKeyboardArrowDown className='text-gray-500' />
                 </button>
                 {/* Filter Dropdown  */}
-                <div className={`p-4 rounded-md shadow-sm mt-3 px-6 bg-white dark:bg-gray-800 absolute ${display ? 'block' : 'hidden'}`}>
+                <div className={`p-4 rounded-md shadow-sm mt-3 px-6 z-50 bg-white dark:bg-gray-800 absolute ${display ? 'block' : 'hidden'}`}>
                     <div className="flex justify-between gap-20">
                         <span className='text-gray-500 dark:text-gray-200'>Grouping</span>
-                        <select className='text-gray-700 border border-gray-200 rounded-md px-3 py-1 pr-8 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 outline-none cursor-pointer'>
-                            <option value={'user'}>User</option>
+                        <select onChange={handleSelectGroup} className='text-gray-700 border border-gray-200 rounded-md px-3 py-1 pr-8 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 outline-none cursor-pointer'>
+                            <option value={'userId'}>User</option>
                             <option value={'status'}>Status</option>
                             <option value={'priority'}>Priority</option>
                         </select>
                     </div>
                     <div className="flex justify-between gap-20 mt-2">
                         <span className='text-gray-500 dark:text-gray-200'>Ordering</span>
-                        <select className='text-gray-700 border border-gray-200 rounded-md px-3 py-1 pr-8 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 outline-none cursor-pointer'>
+                        <select onChange={handleSelectSort} className='text-gray-700 border border-gray-200 rounded-md px-3 py-1 pr-8 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 outline-none cursor-pointer'>
                             <option value={'title'}>Title</option>
                             <option value={'priority'}>Priority</option>
                         </select>
