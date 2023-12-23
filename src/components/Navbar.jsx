@@ -66,7 +66,7 @@ const Navbar = () => {
 
 
     return (
-        <section className="navbar flex justify-between py-4 px-6 bg-white dark:bg-gray-900 dark:text-gray-50">
+        <section className="navbar flex justify-between py-3 px-6 bg-white dark:bg-gray-900 dark:text-gray-50">
             {/* Left: Toggle Button */}
             <div className="filter-wrapper  ">
                 {/* Button */}

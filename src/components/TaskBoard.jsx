@@ -1,61 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { MdAdd, MdMoreHoriz, MdSignalCellularAlt1Bar, MdSignalCellularAlt, MdSignalCellularAlt2Bar, MdError, MdPieChart, MdOutlineIncompleteCircle, MdCheckCircle, MdCancel, } from 'react-icons/md';
-import { LuCircle, LuCircleDashed } from 'react-icons/lu';
+import { MdAdd, MdMoreHoriz } from 'react-icons/md';
 import Card from './Card';
+import { priority, status } from '../utils/constants';
 import useTaskStore from '../store/taskStore';
 
 const TaskBoard = ({ title, tasks }) => {
     const [heading, setHeading] = useState(null);
     const [icon, setIcon] = useState(null);
-
     const { sorting, grouping, users } = useTaskStore();
-
-    //Static array with priority icons
-    const priority = [
-        {
-            text: 'No Priority',
-            icon: <MdSignalCellularAlt1Bar className="text-gray-500" />
-        },
-        {
-            text: 'Low',
-            icon: <MdSignalCellularAlt1Bar className="text-gray-500" />
-        },
-        {
-            text: 'Medium',
-            icon: <MdSignalCellularAlt2Bar className="text-gray-500" />
-        },
-        {
-            text: 'High',
-            icon: <MdSignalCellularAlt className="text-gray-500" />
-        },
-        {
-            text: 'Urgent',
-            icon: <MdError className="text-orange-600" />
-        }
-    ];
-
-    //Static array with status icons
-    const status = [
-        {
-            text: 'Backlog',
-            icon: <LuCircleDashed className="text-gray-500" />
-        },
-        {
-            text: 'Todo',
-            icon: <LuCircle className="text-gray-500" />
-        },
-        {
-            text: 'In progress',
-            icon: <MdOutlineIncompleteCircle className="text-yellow-500" />
-        },
-        {
-            text: 'Done',
-            icon: <MdCheckCircle className="text-green-500" />
-        },
-        {
-            text: 'Cancelled',
-            icon: <MdCancel className="text-gray-500" />
-        }];
 
     useEffect(() => {
         { grouping == 'priority' ? priority[Number(title)] : title }
@@ -68,6 +20,12 @@ const TaskBoard = ({ title, tasks }) => {
         } else if (grouping === 'userId') {
             console.log(grouping);
             const user = users.find((user) => user.id === title);
+            setIcon(
+                <div className="user-avatar relative">
+                    <img src={`https://ui-avatars.com/api/?name=${user.name}&size=32&background=random`} alt="JohnDoe" className="rounded-full h-4 w-4" />
+                    <div className={`available absolute right-0 bottom-0 w-1.5 h-1.5 rounded-full ${user.available ? 'bg-amber-300' : 'bg-gray-500'}`}></div>
+                </div>
+            )
             setHeading(user.name);
         }
     }, [title]);
@@ -87,8 +45,9 @@ const TaskBoard = ({ title, tasks }) => {
             {/* Group Header */}
             < div className="group-header py-3 flex items-center justify-between" >
                 <div className="group-header-left flex items-center gap-3">
-                    {grouping === 'userId' ? <img src={`https://ui-avatars.com/api/?name=${heading}&size=32&background=random`} className='rounded-full w-4 h-4' /> : icon}
-
+                    <div className="relative">
+                        {icon}
+                    </div>
                     <p className="font-medium">
                         {heading} <span className="text-gray-400 font-normal">{tasks.length}</span>
                     </p>
@@ -101,7 +60,7 @@ const TaskBoard = ({ title, tasks }) => {
             {/* Cards */}
             {
                 sortedTasks.map((task) => (
-                    <Card key={task.id} task={task} />
+                    <Card key={task.id} task={task} grouping={grouping} />
                 ))
             }
         </div >

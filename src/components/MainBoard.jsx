@@ -27,7 +27,7 @@ const MainBoard = () => {
 
 
     return (
-        <div className='min-h-screen px-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 bg-gray-100 dark:bg-gray-950 dark:text-gray-50'>
+        <div className='min-h-screen px-8 grid gap-4 py-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 bg-gray-100 dark:bg-gray-950 dark:text-gray-50'>
             {
                 Object.keys(groupedTasks).map((groupKey) => (
                     <TaskBoard key={groupKey} title={groupKey} tasks={groupedTasks[groupKey]} />
