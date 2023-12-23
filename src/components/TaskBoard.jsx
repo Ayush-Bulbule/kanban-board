@@ -2,7 +2,7 @@ import React from 'react'
 import { MdAdd, MdMoreHoriz, MdSignalCellular4Bar, MdSignalCellularAlt } from 'react-icons/md'
 import Card from './Card'
 
-const TaskBoard = () => {
+const TaskBoard = ({ title, cards }) => {
     return (
         <div className=" h-96  ">
             {/* Group Header */}
