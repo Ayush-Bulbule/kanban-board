@@ -70,7 +70,7 @@ const Navbar = () => {
             {/* Left: Toggle Button */}
             <div className="filter-wrapper  ">
                 {/* Button */}
-                <button onClick={toggleDisplay} className="btn-display px-1.5 py-0.5 rounded-md border-2 gap-2 shadow-sm sha shadow-gray-300 dark:shadow-gray-600 dark:border-gray-600 flex items-center border-gray-200 ">
+                <button onClick={toggleDisplay} className="btn-display px-1.5 py-0.5 rounded-md border-2 gap-2  sha shadow-gray-300 dark:shadow-gray-600 dark:border-gray-700 flex items-center border-gray-300 shadow-[rgba(0,_0,_0,_0.133)_0px_0px_8px_0px] dark:shadow-[rgba(255,_255,_255,_0.133)_0px_0px_8px_0px] ">
                     <MdTune className='text-gray-500' />
                     <span>Display</span>
                     <MdKeyboardArrowDown className='text-gray-500' />
@@ -80,8 +80,8 @@ const Navbar = () => {
                     <div className="flex justify-between gap-20">
                         <span className='text-gray-500 dark:text-gray-200'>Grouping</span>
                         <select onChange={handleSelectGroup} className='text-gray-700 border border-gray-200 rounded-md px-3 py-1 pr-8 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 outline-none cursor-pointer'>
-                            <option value={'userId'}>User</option>
                             <option value={'status'}>Status</option>
+                            <option value={'userId'}>User</option>
                             <option value={'priority'}>Priority</option>
                         </select>
                     </div>

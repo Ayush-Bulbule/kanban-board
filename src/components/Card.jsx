@@ -7,7 +7,7 @@ const Card = ({ task }) => {
     const user = users.find((user) => user.id === task.userId);
 
     return (
-        <div className="p-3 py-2 mt-2 rounded-md shadow-md  bg-white  dark:bg-gray-900">
+        <div className="p-3 py-2 mt-2 rounded-md   bg-white  dark:bg-gray-900 shadow-[rgba(0,_0,_0,_0.133)_0px_0px_8px_0px] dark:shadow-[rgba(255,_255,_255,_0.133)_0px_0px_8px_0px] dark:border dark:border-gray-600">
             <div className="card-header flex justify-between">
                 <span className='text-gray-500'>{task.id}</span>
                 <div className="user-avatar relative">
@@ -33,3 +33,5 @@ const Card = ({ task }) => {
 }
 
 export default Card
+
+
