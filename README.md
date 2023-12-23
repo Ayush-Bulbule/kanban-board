@@ -5,11 +5,11 @@
 **Kanban Board** is an interactive web application built using React JS. It allows users to manage and visualize their tasks using a Kanban board interface, enabling dynamic grouping and sorting based on various criteria.
 
 ## 2. Tech Stack
-![ReactJS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![ReactJS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) (React+Vite)
 
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-![Zustand](https://img.shields.io/badge/Zustand-%20-brightgreen)]
+![Zustand](https://img.shields.io/badge/Zustand-%20-brightgreen)
 
 ## 3. Features
 
