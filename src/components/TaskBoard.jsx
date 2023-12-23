@@ -41,7 +41,7 @@ const TaskBoard = ({ title, tasks }) => {
     });
 
     return (
-        <div className="h-96" >
+        <div className="" >
             {/* Group Header */}
             < div className="group-header py-3 flex items-center justify-between" >
                 <div className="group-header-left flex items-center gap-3">
